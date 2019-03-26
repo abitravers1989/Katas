@@ -1,4 +1,3 @@
-
 const isPrime = (n) => {
   if (n !== Math.round(n) || n <= 1) {return false}
   let isPrimes = true;
@@ -9,17 +8,16 @@ const isPrime = (n) => {
 };
 
 const sumOfDivided = list => {
-  const primeFactorArray = [];
   const savedNums = [];
   list.forEach((item) => {
+    console.log('----->item',item )
     if ((typeof item) === 'number') {
+      console.log('----->heress')
       for (let i = 1; i <= item; i+=1) {
+        console.log('----->i', i)
       if ((item % i) === 0) {
-        let returnArrays;
         if (isPrime(i) === true) {
           savedNums.push(i)
-          returnArrays = [i, item]
-          primeFactorArray.push(returnArrays)
         }
       }
      }
@@ -31,6 +29,9 @@ const sumOfDivided = list => {
       newArray.push(item)
     }
   })
+
+  newArray.sort((a, b) => a - b)
+  console.log('----->newArray', newArray)
   
 const finalArray = [];
   newArray.forEach(num => {
@@ -50,17 +51,7 @@ const finalArray = [];
 }
 
 
-// console.log('----->', isPråime(2))
-sumOfDivided([12, 15]) /* [ [2, 12], [3, 27], [5, 15] ] */
-console.log(sumOfDivided([15, 21, 24, 30, 45]))
-console.log(sumOfDivided([15, 15, 1000101]))
-const today = new Date()
-const timeNow = `${today.getMinutes()  }:${  today.getSeconds()}` 
-console.log('----->1st time', timeNow)
-console.log(sumOfDivided([15, 15, 277777777, 1000101]))
-const today2 = new Date()
-const timeNow2 = `${today2.getMinutes()  }:${  today2.getSeconds()}` 
-console.log('----->1st time', timeNow2)
+//console.log('----->', sumOfDivided([15,21,24,30,45]))
+//console.log('----->', sumOfDivided([ 107, 158, 204, 100, 118, 123, 126, 110, 116, 100 ]))
 
-// current solution takes 1 min
-
+console.log('----->', sumOfDivided([ -29804, -4209, -28265, -72769, -31744 ]))
